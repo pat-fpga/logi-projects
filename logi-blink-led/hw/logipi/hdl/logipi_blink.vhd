@@ -4,7 +4,7 @@
 -- 
 -- Create Date:    14:14:22 06/21/2012 
 -- Design Name: 
--- Module Name:    spartcam_beaglebone - Behavioral 
+-- Module Name:    logipi_blink - RTL 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -19,7 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.numeric_std.ALL;
 
 entity logipi_blink is
 port( OSC_FPGA : in std_logic;
@@ -28,10 +28,10 @@ port( OSC_FPGA : in std_logic;
 );
 end logipi_blink;
 
-architecture Behavioral of logipi_blink is
+architecture RTL of logipi_blink is
 	
 	-- Led counter
-	signal counter_output : std_logic_vector(31 downto 0);
+	signal counter_output : unsigned(31 downto 0);
 	
 begin
 	
@@ -44,5 +44,5 @@ begin
 	LED(0) <= counter_output(24);
 	LED(1) <= counter_output(23);
 
-end Behavioral;
+end RTL;
 
